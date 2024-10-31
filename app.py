@@ -1,7 +1,6 @@
 from fastapi import FastAPI
+from endpoints import router as jobs_router
 
 app = FastAPI()
 
-@app.get("/")
-async def root():
-    return {"message": "Welcome to the AI-powered job search companion!"}
+app.include_router(jobs_router, prefix="/api")
